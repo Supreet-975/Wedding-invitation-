@@ -1,1 +1,402 @@
-interactive_wedding_invitation_demo.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wedding Invitation</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#eee3dc;color:#3b2d2a;font-family:Georgia,serif}
+.page{max-width:680px;margin:auto;background:#fffaf2;overflow:hidden}
+
+.hero{
+min-height:700px;
+display:flex;
+align-items:flex-end;
+text-align:center;
+color:white;
+background:
+linear-gradient(transparent 25%,rgba(35,20,20,.85)),
+url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85")
+center/cover;
+}
+
+.heroContent{width:100%;padding:45px 25px 60px}
+.small{text-transform:uppercase;letter-spacing:4px;font-size:11px}
+h1{font-size:54px;font-weight:400;line-height:1;margin:18px 0}
+.amp{font-size:25px;color:#e6c68c}
+.hero p{line-height:1.7}
+button,.button{
+border:0;border-radius:30px;padding:14px 25px;
+font:inherit;cursor:pointer
+}
+.open,.wine{background:#743f48;color:white}
+.open{margin-top:15px;border:1px solid #fff}
+
+.content{display:none}
+section{padding:60px 22px;text-align:center}
+.alt{background:#faeee6}
+.kicker{text-transform:uppercase;letter-spacing:4px;color:#743f48;font-size:11px}
+h2{font-size:34px;font-weight:400;color:#743f48;margin:12px 0}
+.line{width:65px;height:2px;background:#b88a45;margin:20px auto 28px}
+p{line-height:1.8;color:#75645d}
+.story{font-size:19px;font-style:italic}
+
+.count{
+display:grid;grid-template-columns:repeat(4,1fr);gap:8px
+}
+.count div{
+background:white;border:1px solid #ead8c8;
+border-radius:16px;padding:15px 4px
+}
+.count strong{display:block;font-size:27px;color:#743f48}
+.count span{font-size:10px;color:#806f67}
+
+.event{
+background:#fffaf5;border:1px solid #ead8c8;
+border-radius:20px;padding:20px;margin:14px 0;text-align:left
+}
+.event h3{color:#743f48;font-size:23px;margin:8px 0}
+.event .date{color:#b88a45;font-size:11px;letter-spacing:2px}
+.more{background:none;color:#743f48;padding:10px 0}
+.details{display:none}
+.event.open .details{display:block}
+
+.gallery{
+display:grid;grid-template-columns:1.3fr .7fr;gap:10px
+}
+.photo{
+min-height:170px;border-radius:18px;
+display:flex;align-items:center;justify-content:center;
+font-size:42px;color:white
+}
+.photo.big{
+grid-row:span 2;min-height:350px;
+background:url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80") center/cover
+}
+.photo.two{background:linear-gradient(135deg,#b98c78,#e9d0b8)}
+.photo.three{background:linear-gradient(135deg,#8d5f69,#e5bbb6)}
+
+.info{
+display:grid;grid-template-columns:1fr 1fr;gap:12px
+}
+.box{
+background:#fffaf5;border:1px solid #ead8c8;
+border-radius:18px;padding:18px
+}
+.box h3{color:#743f48}
+.map{
+display:inline-block;margin-top:20px;
+background:#743f48;color:white;
+padding:14px 24px;border-radius:30px;
+text-decoration:none
+}
+
+form{text-align:left}
+label{display:block;margin:15px 0 6px;color:#75645d}
+input,select,textarea{
+width:100%;padding:13px;border:1px solid #ddc9ba;
+border-radius:12px;font:inherit;font-size:16px
+}
+form button{width:100%;margin-top:18px}
+.message{
+display:none;background:#f1dfd5;
+padding:14px;border-radius:12px;
+margin-top:15px;color:#743f48
+}
+
+footer{
+padding:70px 20px;text-align:center;
+background:#ead3ca
+}
+footer h2{line-height:1.2}
+.top{background:transparent;color:#743f48;border:1px solid #743f48}
+
+@media(max-width:430px){
+h1{font-size:45px}
+.count{grid-template-columns:repeat(2,1fr)}
+.info{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page" id="top">
+
+<div class="hero">
+<div class="heroContent">
+<div class="small">A celebration of love · family · forever</div>
+
+<h1>
+Priyanka<br>
+<span class="amp">&</span><br>
+Nick
+</h1>
+
+<p>Umaid Bhawan Palace · Jodhpur</p>
+
+<button class="open" id="open">Open the Invitation ✦</button>
+</div>
+</div>
+
+<div class="content" id="content">
+
+<section>
+<div style="font-size:35px;color:#b88a45">❦</div>
+<div class="kicker">Welcome</div>
+<h2>And so the story begins…</h2>
+<div class="line"></div>
+
+<p class="story">
+“Two people. Two cultures. Two families. One beautiful celebration.”
+</p>
+
+<p>
+Scroll down to discover the celebrations, memories,
+venue and details of this special wedding.
+</p>
+</section>
+
+<section class="alt">
+<div class="kicker">The Big Day</div>
+<h2>Counting Down to Forever</h2>
+<div class="line"></div>
+
+<div class="count">
+<div><strong id="d">00</strong><span>DAYS</span></div>
+<div><strong id="h">00</strong><span>HOURS</span></div>
+<div><strong id="m">00</strong><span>MINUTES</span></div>
+<div><strong id="s">00</strong><span>SECONDS</span></div>
+</div>
+
+<p style="font-size:12px">
+Demo date: 1 December 2027
+</p>
+</section>
+
+<section>
+<div class="kicker">The Celebrations</div>
+<h2>Our Wedding Journey</h2>
+<div class="line"></div>
+
+<div class="event">
+<div class="date">PRE-WEDDING</div>
+<h3>🌸 Mehendi</h3>
+<p>Henna, flowers, music and family.</p>
+<button class="more">Tap for details +</button>
+<div class="details">
+<p>A beautiful beginning filled with traditional mehendi,
+colourful decorations and family celebrations.</p>
+</div>
+</div>
+
+<div class="event">
+<div class="date">CELEBRATION</div>
+<h3>🎶 Sangeet</h3>
+<p>An evening of music and dance.</p>
+<button class="more">Tap for details +</button>
+<div class="details">
+<p>A lively evening of performances celebrating both families.</p>
+</div>
+</div>
+
+<div class="event">
+<div class="date">1 DECEMBER 2018</div>
+<h3>💍 Christian Ceremony</h3>
+<p>Umaid Bhawan Palace · Jodhpur</p>
+<button class="more">Tap for details +</button>
+<div class="details">
+<p>A beautiful Christian wedding ceremony surrounded by family.</p>
+</div>
+</div>
+
+<div class="event">
+<div class="date">2 DECEMBER 2018</div>
+<h3>🪷 Hindu Ceremony</h3>
+<p>Umaid Bhawan Palace · Jodhpur</p>
+<button class="more">Tap for details +</button>
+<div class="details">
+<p>The celebrations continued with a traditional Hindu ceremony.</p>
+</div>
+</div>
+
+</section>
+
+<section class="alt">
+<div class="kicker">Moments</div>
+<h2>Little Pieces of Magic</h2>
+<div class="line"></div>
+
+<div class="gallery">
+<div class="photo big"></div>
+<div class="photo two">🌸</div>
+<div class="photo three">✨</div>
+</div>
+
+<p style="font-size:12px">
+Your own wedding photographs can go here.
+</p>
+</section>
+
+<section>
+<div class="kicker">The Setting</div>
+<h2>Umaid Bhawan Palace</h2>
+<div class="line"></div>
+
+<p>
+Jodhpur, Rajasthan
+</p>
+
+<p>
+A magnificent palace setting for a celebration
+bringing together Indian and Western traditions.
+</p>
+
+<a class="map"
+href="https://www.google.com/maps/search/?api=1&query=Umaid+Bhawan+Palace+Jodhpur"
+target="_blank">
+📍 Open in Google Maps
+</a>
+</section>
+
+<section class="alt">
+<div class="kicker">For Our Guests</div>
+<h2>Good to Know</h2>
+<div class="line"></div>
+
+<div class="info">
+<div class="box">
+<h3>👗 Dress Code</h3>
+<p>Festive Indian / Formal</p>
+</div>
+
+<div class="box">
+<h3>🚗 Travel</h3>
+<p>Travel & accommodation information</p>
+</div>
+
+<div class="box">
+<h3>🎵 Music</h3>
+<p>Wedding music can be added here.</p>
+<button class="wine" id="music">♪ Play</button>
+</div>
+
+<div class="box">
+<h3>📸 Memories</h3>
+<p>Bring your camera and dancing shoes!</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="kicker">We'd Love to Have You</div>
+<h2>RSVP</h2>
+<div class="line"></div>
+
+<form id="form">
+
+<label>Your Name</label>
+<input required placeholder="Enter your name">
+
+<label>Will you join us?</label>
+<select>
+<option>Joyfully attending</option>
+<option>With regrets</option>
+</select>
+
+<label>Number of guests</label>
+<select>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label>Message</label>
+<textarea rows="3" placeholder="A little message for the couple"></textarea>
+
+<button class="wine" type="submit">Send RSVP 💌</button>
+
+<div class="message" id="message">
+Thank you! Your RSVP has been received in this demo.
+</div>
+
+</form>
+</section>
+
+<footer>
+<div style="font-size:42px;color:#743f48">♥</div>
+
+<h2>
+We Can't Wait<br>
+to Celebrate With You
+</h2>
+
+<p>With love, family & blessings</p>
+
+<button class="top" onclick="document.getElementById('top').scrollIntoView()">
+Back to Beginning ↑
+</button>
+</footer>
+
+</div>
+</div>
+
+<script>
+
+document.getElementById("open").onclick=function(){
+document.getElementById("content").style.display="block";
+document.getElementById("content").scrollIntoView({behavior:"smooth"});
+};
+
+document.querySelectorAll(".more").forEach(function(button){
+button.onclick=function(){
+var event=button.parentElement;
+event.classList.toggle("open");
+
+button.innerText=
+event.classList.contains("open")
+?"Close details −"
+:"Tap for details +";
+};
+});
+
+var weddingDate=new Date("2027-12-01T18:00:00+05:30").getTime();
+
+function countdown(){
+var x=weddingDate-Date.now();
+
+if(x<0)x=0;
+
+document.getElementById("d").innerText=
+Math.floor(x/86400000);
+
+document.getElementById("h").innerText=
+Math.floor((x%86400000)/3600000);
+
+document.getElementById("m").innerText=
+Math.floor((x%3600000)/60000);
+
+document.getElementById("s").innerText=
+Math.floor((x%60000)/1000);
+}
+
+countdown();
+setInterval(countdown,1000);
+
+document.getElementById("form").onsubmit=function(e){
+e.preventDefault();
+document.getElementById("message").style.display="block";
+};
+
+document.getElementById("music").onclick=function(){
+alert("In the final invitation, we can add your chosen wedding song here.");
+};
+
+</script>
+
+</body>
+</html>
