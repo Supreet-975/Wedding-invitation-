@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #f8f1e7;
+  color: #5a3d32;
+  text-align: center;
+}
+
+.card {
+  max-width: 600px;
+  margin: auto;
+  min-height: 100vh;
+  background: #fffaf3;
+  padding: 45px 25px;
+}
+
+.heart {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.small {
+  letter-spacing: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 45px;
+  margin: 15px 0;
+  color: #8b5e52;
+}
+
+h2 {
+  font-size: 28px;
+  color: #8b5e52;
+}
+
+.names {
+  font-size: 34px;
+  margin: 25px 0;
+}
+
+.divider {
+  width: 100px;
+  height: 2px;
+  background: #c9a58f;
+  margin: 25px auto;
+}
+
+.date {
+  font-size: 21px;
+  margin: 20px 0;
+}
+
+.message {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.buttons {
+  margin-top: 35px;
+}
+
+button {
+  width: 90%;
+  max-width: 350px;
+  padding: 15px;
+  margin: 8px;
+  border: none;
+  border-radius: 30px;
+  background: #9b6b5c;
+  color: white;
+  font-size: 16px;
+  font-family: Georgia, serif;
+}
+
+.section {
+  display: none;
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 20px;
+  background: #f5e8dc;
+  line-height: 1.7;
+}
+
+.section h3 {
+  color: #8b5e52;
+  font-size: 25px;
+}
+
+footer {
+  margin-top: 45px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+</style>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(function(section) {
+    section.style.display = 'none';
+  });
+
+  document.getElementById(id).style.display = 'block';
+
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="heart">♡</div>
+
+  <div class="small">Together with their families</div>
+
+  <h1>Wedding Invitation</h1>
+
+  <div class="divider"></div>
+
+  <div class="names">
+    Aditi<br>
+    <span style="font-size:22px;">&</span><br>
+    Aarav
+  </div>
+
+  <div class="message">
+    Request the pleasure of your company<br>
+    as they celebrate their special day.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="date">
+    Saturday, 15 February 2027<br>
+    6:00 PM onwards
+  </div>
+
+  <div class="buttons">
+
+    <button onclick="showSection('events')">
+      💍 Wedding Events
+    </button>
+
+    <button onclick="showSection('venue')">
+      📍 Venue & Location
+    </button>
+
+    <button onclick="showSection('rsvp')">
+      💌 RSVP
+    </button>
+
+  </div>
+
+  <div id="events" class="section">
+    <h3>Wedding Events</h3>
+
+    <b>Mehndi</b><br>
+    Friday, 14 February<br>
+    5:00 PM
+
+    <br><br>
+
+    <b>Wedding Ceremony</b><br>
+    Saturday, 15 February<br>
+    6:00 PM
+
+    <br><br>
+
+    <b>Reception</b><br>
+    Saturday, 15 February<br>
+    8:00 PM
+  </div>
+
+  <div id="venue" class="section">
+    <h3>Venue</h3>
+
+    The Grand Wedding Palace<br>
+    Jalandhar, Punjab
+
+    <br><br>
+
+    <button onclick="window.open('https://maps.google.com','_blank')">
+      Open Google Maps
+    </button>
+  </div>
+
+  <div id="rsvp" class="section">
+    <h3>RSVP</h3>
+
+    We would love to celebrate<br>
+    this special occasion with you.
+
+    <br><br>
+
+    Please confirm your presence.
+
+    <br><br>
+
+    <button onclick="window.location.href='tel:+911234567890'">
+      📞 Call to RSVP
+    </button>
+  </div>
+
+  <footer>
+    With love & blessings ♡
+  </footer>
+
+</div>
+
+</body>
+</html>
